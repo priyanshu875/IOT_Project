@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        async function getData(){
+           let response=await fetch("http://localhost:5000/getData")//2
+           console.log(response);//0.5th
+           let data=await response.json();
+           console.log(data);
+            let doc=data.result;
+           console.log(doc);
+           doc.forEach(ele => {
+            // console.log(ele.name +"-> " +ele.status);
+            document.writeln(ele.name+" :   " +ele.status)
+            document.write("<br>")
+            
+           });
+
+
+           
+        }
+        
+    </script>
+
+    <button onclick="getData()">Info</button>
+</body>
+</html>
